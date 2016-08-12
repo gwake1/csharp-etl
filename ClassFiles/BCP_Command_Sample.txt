@@ -1,0 +1,8 @@
+
+
+SELECT CustomerID, CompanyName, City, CAST(NULL as nvarchar(20)) AS Planet INTO dbo.CoolestCustomers FROM dbo.Customers WHERE (1= 0)
+
+BCP Northwind.dbo.Customers out C:\DataSchenk\Temp\SomeFileNameYouLove.txt -S Santiago\Downtown -E -w -t "|" -r "\n" -T 
+
+BCP Northwind.dbo.CoolCustomers in C:\DataSchenk\Temp\SomeFileNameYouLove.txt -S Santiago\Downtown -E -w -t "|" -r "\n" -T 
+

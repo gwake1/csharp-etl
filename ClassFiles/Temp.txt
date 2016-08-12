@@ -1,0 +1,17 @@
+,
+
+	-- Standard Dimension Table fare --
+
+	dteFromDate				date					NOT NULL	CONSTRAINT DF_dbo_Customer_FromDate DEFAULT (CURRENT_TIMESTAMP),
+	dteThruDate				date					NULL,
+	bitCurrentFlag			bit						NOT NULL	CONSTRAINT DF_dbo_Customer_CurrentFlag DEFAULT(1),
+
+	-- Audit / Meta Data --
+
+	binHashSCDType1			varbinary(20)			NOT NULL	CONSTRAINT DF_dbo_Customer_HashSCDType1 DEFAULT(0x0),
+	binHashSCDType2			varbinary(20)			NOT NULL	CONSTRAINT DF_dbo_Customer_HashSCDType2 DEFAULT(0x0),
+	binHashSCDType3			varbinary(20)			NOT NULL	CONSTRAINT DF_dbo_Customer_HashSCDType3 DEFAULT(0x0),
+
+	dteUpdatedDate			date					NOT NULL	CONSTRAINT DF_dbo_Customer_UpdatedDate DEFAULT (CURRENT_TIMESTAMP),
+	uidCustomer_GUID		uniqueidentifier		NOT NULL	ROWGUIDCOL CONSTRAINT DF_dbo_Customer_Customer_GUID DEFAULT (NEWSEQUENTIALID()),
+	binRowVersion			rowversion				NOT NULL
